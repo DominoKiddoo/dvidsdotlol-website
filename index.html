@@ -1,7 +1,35 @@
-<title>reactionvids.lol</title>
-<h1>reactionvids.lol</h1>
-<p>random website containing reaction videos that embed into discord easilly.</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+	<title>reactionvids.lol</title>
+</head>
+<body>
+	<h1>reactionvids.lol</h1>
+	<p>random website containing reaction videos that embed into discord easily.</p>
+	<p>uhhh here’s an index of videos i guess</p>
 
-uhhh heres an index of videos i guess
+	<ul id="video-list">
+	</ul>
 
-TODO: add index here
+	<script>
+		fetch('videos.json')
+			.then(response => response.json())
+			.then(videos => {
+				const list = document.getElementById('video-list');
+				videos.forEach(video => {
+					const li = document.createElement('li');
+					const a = document.createElement('a');
+					a.href = video.url;
+					a.textContent = video.name;
+					li.appendChild(a);
+					list.appendChild(li);
+				});
+			})
+			.catch(() => {
+				document.getElementById('video-list').textContent = 'Failed to load video list.';
+			});
+	</script>
+</body>
+</html>
