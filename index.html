@@ -1,35 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8" />
-	<meta name="viewport" content="width=device-width, initial-scale=1" />
-	<title>vidz.lol</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+
+    <title>vidz.lol</title>
 </head>
 <body>
-	<h1>vidz.lol</h1>
-	<p>a random website containing reaction videos that embed into discord easily.</p>
-	<p>uhhh here’s an index of videos i guess</p>
+    <h1>vidz.lol</h1>
+    <p>a random website containing reaction videos that embed into discord easily.</p>
+    <p>uhhh here’s an index of videos i guess</p>
 
-	<ul id="video-list">
-	</ul>
+    <ul id="video-list">
+    </ul>
 
-	<script>
-		fetch('videos.json')
-			.then(response => response.json())
-			.then(videos => {
-				const list = document.getElementById('video-list');
-				videos.forEach(video => {
-					const li = document.createElement('li');
-					const a = document.createElement('a');
-					a.href = video.url;
-					a.textContent = video.name;
-					li.appendChild(a);
-					list.appendChild(li);
-				});
-			})
-			.catch(() => {
-				document.getElementById('video-list').textContent = 'Failed to load video list.';
-			});
-	</script>
+    <script>
+        fetch(`videos.json?t=${Date.now()}`, {
+            cache: 'no-store'
+        })
+            .then(response => {
+                if (!response.ok) throw new Error('Not found');
+                return response.json();
+            })
+            .then(videos => {
+                const list = document.getElementById('video-list');
+                list.innerHTML = ''; 
+                
+                videos.forEach(video => {
+                    const li = document.createElement('li');
+                    const a = document.createElement('a');
+                                        a.href = video.url;
+                    a.textContent = video.name;
+                    
+                    li.appendChild(a);
+                    list.appendChild(li);
+                });
+            })
+            .catch(() => {
+                document.getElementById('video-list').textContent = 'Failed to load video list.';
+            });
+    </script>
 </body>
 </html>
