@@ -9,6 +9,30 @@
     <meta http-equiv="Expires" content="0">
 
     <title>vidz.lol</title>
+    <style>
+    .floating-icons {
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        display: flex;
+        flex-direction: column; 
+        gap: 15px;
+        z-index: 1000;
+    }
+
+    .floating-icons img {
+        width: 40px;
+        height: 40px;
+        opacity: 0.7;
+        transition: transform 0.2s, opacity 0.2s;
+        filter: drop-shadow(0px 4px 6px rgba(0,0,0,0.2));
+    }
+
+    .floating-icons img:hover {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+</style>
 </head>
 <body>
     <h1>vidz.lol</h1>
@@ -17,6 +41,8 @@
     <h2>how to use</h2>
     <p>click on a video from the video list below, copy the url, and paste it into discord for it to automatically embed into your message.<br>The url's of the videos on this website were designed to be easy to memorise so you can use them whenever you want without having to come here to check.</p>
 
+    <h2>"i want a video added!"</h2>
+    <p>if you want a video added, you can submit a pull request on the <a target="_blank" href="https://github.com/DominoKiddoo/dvidsdotlol-website">GitHub repository</a> (instructions and stuff are there).</p>
 
     <h2>video list</h2>
     <p>uhhh here’s an index of videos i guess</p>
@@ -50,5 +76,10 @@
                 document.getElementById('video-list').textContent = 'Failed to load video list.';
             });
     </script>
+
+    <div class="floating-icons">
+    <a href="https://github.com/DominoKiddoo/dvidsdotlol-website" target="_blank" title="Contribute">
+        <img src="https://cdn-icons-png.flaticon.com/512/25/25231.png" alt="GitHub">
+    </a>
 </body>
 </html>
