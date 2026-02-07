@@ -16,8 +16,29 @@
 	<meta name="twitter:player:height" content="360" />
 	<meta name="twitter:player:stream" content="https://dominokiddoo.github.io/dvidsdotlol-website/quock/quock.mp4" />
 	<meta name="twitter:player:stream:content_type" content="video/mp4" />
+
+	<style>
+		html, body {
+			margin: 0;
+			padding: 0;
+			height: 100%;
+			width: 100%;
+			overflow: hidden;
+		}
+		video {
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100vw;
+			height: 100vh;
+			object-fit: cover;
+			z-index: -1;
+		}
+	</style>
 </head>
 <body>
-	<p>If you see this, your browser does not support video embedding.</p>
+	<video autoplay muted controls>
+		<source src="quock/quock.mp4" type="video/mp4" />
+	</video>
 </body>
 </html>
