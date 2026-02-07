@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+        <title>Video Embed</title>
+
+        <meta property="og:title" content="Check this out" />
+        <meta property="og:description" content="Try it and see..." />
+        <meta property="og:type" content="video.other" />
+        <meta property="og:image" content="https://your-live-url.com/thumbnail.jpg" />
+
+        <meta property="og:video" content="https://your-live-url.com/videos/quock.mp4" />
+        <meta property="og:video:url" content="https://your-live-url.com/videos/quock.mp4" />
+        <meta property="og:video:secure_url" content="https://your-live-url.com/videos/quock.mp4" />
+        <meta property="og:video:type" content="video/mp4" />
+        <meta property="og:video:width" content="640" />
+        <meta property="og:video:height" content="360" />
+
+        <meta name="twitter:card" content="player" />
+        <meta name="twitter:player" content="https://your-live-url.com/" />
+        <meta name="twitter:player:width" content="640" />
+        <meta name="twitter:player:height" content="360" />
+        <meta name="twitter:player:stream" content="https://your-live-url.com/videos/quock.mp4" />
+        <meta name="twitter:player:stream:content_type" content="video/mp4" />
+
+        <style>
+            html, body {
+                margin: 0;
+                padding: 0;
+                height: 100%;
+                background-color: #000;
+                overflow: hidden;
+            }
+
+            video {
+                width: 100vw;
+                height: 100vh;
+                object-fit: contain;
+                display: block;
+            }
+        </style>
+    </head>
+
+    <body>
+        <video controls autoplay muted playsinline>
+            <source src="videos/quock.mp4" type="video/mp4" />
+            Your browser does not support the video tag.
+        </video>
+    </body>
+</html>
